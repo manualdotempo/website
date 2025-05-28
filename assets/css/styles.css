@@ -1,0 +1,15 @@
+/* Reset de css */
+*,
+a,
+ul {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+}
+
+/* Ajuste de medida rem */
+html {
+  font-size: 62.5%;
+}
