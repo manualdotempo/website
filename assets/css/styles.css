@@ -75,7 +75,7 @@ header {
   background: white;
   position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 4;
 }
 
 .limite-container {
@@ -90,8 +90,7 @@ header {
   height: 4rem;
 }
 
-header ul,
-footer ul {
+.limite-container ul {
   display: flex;
   justify-content: space-around;
   gap: 1vw;
@@ -110,6 +109,7 @@ footer ul {
 
 .botao-cadastro {
   outline: 0.2rem solid #214EE5;
+  background: white;
   color: #214EE5;
 }
 
@@ -141,9 +141,35 @@ footer ul {
   font-weight: 500;
 }
 
-.fechar-navegador {
+/* Menu hamburguer para responsividade */
+.abrir-menu {
   display: none;
   height: 2.5rem;
+  z-index: 5;
+}
+
+.navegador-mobile {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+}
+
+.navegador-mobile ul {
+  height: 100vh;
+  width: 35vw;
+  min-width: 250px;
+  padding: 2rem;
+  padding-top: 12vh;
+  border-radius: 2vh 0 0 2vh;
+  background: white;
+  float: right;
+
+  & li {
+    margin-block: 2vh;
+  }
 }
 
 /* Padronização de main */
@@ -153,11 +179,11 @@ main {
   padding-top: 2vh;
 }
 
-main > *:not(:first-child) {
+main>*:not(:first-child) {
   margin-top: 8vh;
 }
 
-main > * {
+main>* {
   margin-bottom: 8vh;
 }
 
@@ -166,6 +192,7 @@ footer {
   width: 100vw;
   padding: 2vh 0 4vh 0;
   background: #313131;
+  z-index: 2;
 
   & p,
   a {
@@ -188,6 +215,7 @@ footer nav {
 
 /*--------------------- Media queries ---------------------*/
 @media (max-width: 600px) {
+
   /* Ajuste de header landing page*/
   .navegador-entradas {
     background: white;
@@ -198,7 +226,7 @@ footer nav {
     position: absolute;
     bottom: -6vh;
     right: 1vw;
-    
+
     & a {
       min-width: 9rem;
       font-size: 1.25rem;
@@ -207,8 +235,9 @@ footer nav {
 }
 
 @media (max-width: 768px) {
+
   /* Ajuste de header pós entrada*/
-  .fechar-navegador {
+  .abrir-menu {
     display: flex;
   }
 
