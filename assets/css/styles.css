@@ -36,7 +36,7 @@ html {
 
 /* Titulos */
 h1 {
-  font-size: 6.4rem;
+  font-size: 5.6rem;
 }
 
 h2 {
@@ -75,6 +75,7 @@ header {
   background: white;
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 
 .limite-container {
@@ -150,6 +151,14 @@ main {
   width: 90%;
   max-width: 1200px;
   padding-top: 2vh;
+}
+
+main > *:not(:first-child) {
+  margin-top: 8vh;
+}
+
+main > * {
+  margin-bottom: 8vh;
 }
 
 /* Footer */

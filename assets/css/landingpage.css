@@ -1,0 +1,53 @@
+/* 1ª seção*/
+.hero {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background: rgb(211, 229, 235);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.hero-banner,
+.figura {
+    height: 79vh;
+    width: 50%;
+    min-width: 250px;
+}
+
+.hero-banner img,
+.figura img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero-titulo {
+    max-width: 50%;
+    padding: 8vh 2vw;
+    padding-left: 4vw;
+}
+
+/* 2ª seção */
+.secao1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.descricao ul {
+    display: flex;
+    flex-flow: column;
+    margin-top: 4vh;
+    gap: 2vh;
+}
+
+.descricao li {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+
+    & img {
+        height: 4rem;
+    }
+}
