@@ -57,6 +57,7 @@ body {
   flex-flow: column;
   height: 90vh;
   margin-top: 10vh;
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -122,7 +123,7 @@ header {
 /* Botões do header pós entrada */
 .navegador-paginas {
   position: absolute;
-  bottom: -4.5vh;
+  bottom: -4vh;
   right: 1vw;
 
   & ul {
@@ -136,9 +137,22 @@ header {
   min-width: 9rem;
   padding: 0.25rem 0.75rem;
   border-radius: 0 0 0.5rem 0.5rem;
-  background: gray;
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
+  background: white;
   font-size: 1.5rem;
   font-weight: 500;
+  transition: transform 0.3s ease;
+}
+
+.navegador-paginas a:hover {
+  color: #214EE5;
+  font-weight: 600;
+}
+
+.navegador-paginas a.link-ativo {
+  background: #D3E5E6;
+  box-shadow: none;
+  transform: translateY(0.75vh);
 }
 
 /* Menu hamburguer para responsividade */
@@ -172,6 +186,13 @@ header {
   }
 }
 
+.navegador-mobile a.link-ativo {
+  background: #D3E5E6;
+  padding-inline: 1rem 14rem;
+  border-radius: 0.2rem;
+  outline: #D3E5E6 solid 0.5rem;
+}
+
 /* Padronização de main */
 main {
   width: 90%;
@@ -185,6 +206,22 @@ main>*:not(:first-child) {
 
 main>* {
   margin-bottom: 8vh;
+}
+
+/* Conteúdo inicial (titulo) */
+.titulo {
+  position: relative;
+}
+
+.titulo::before {
+  background: #D3E5E6;
+  height: 200%;
+  width: 200%;
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  z-index: -1;
 }
 
 /* Footer */
@@ -235,6 +272,19 @@ footer nav {
 }
 
 @media (max-width: 768px) {
+
+  /* Ajuste de fontes */
+  h1 {
+    font-size: 4.2rem;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+  }
 
   /* Ajuste de header pós entrada*/
   .abrir-menu {
