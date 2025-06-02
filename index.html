@@ -20,8 +20,8 @@
             <nav class="navegador-entradas">
                 <ul>
                     <!-- Caminhos provisórios -->
-                    <li><a class="botao-cadastro" href="./pages/home.html">Criar conta</a></li>
-                    <li><a class="botao-login" href="./pages/home.html">Entrar</a></li>
+                    <li><a class="botao variante" href="./pages/home.html">Criar conta</a></li>
+                    <li><a class="botao" href="./pages/home.html">Entrar</a></li>
                 </ul>
             </nav>
         </div>
@@ -77,6 +77,18 @@
             </nav>
         </div>
     </footer>
+
+    <!-- API de Acessibilidade VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 </body>
 
 </html>

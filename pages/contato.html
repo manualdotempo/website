@@ -27,7 +27,7 @@
                 </ul>
             </nav>
         </div>
-        
+
         <nav class="navegador-mobile">
             <ul>
                 <li><a href="./home.html">Início</a></li>
@@ -67,8 +67,9 @@
     </main>
     <footer>
         <div class="limite-container">
-           <section>
-                <a href="./home.html"><img class="logo" src="../assets/images/variante-logo.png" alt="logo da manual do tempo"></a>
+            <section>
+                <a href="./home.html"><img class="logo" src="../assets/images/variante-logo.png"
+                        alt="logo da manual do tempo"></a>
                 <p>© 2025 Manual do Tempo. Todos os direitos reservados</p>
             </section>
             <nav>
@@ -79,6 +80,18 @@
             </nav>
         </div>
     </footer>
+
+    <!-- API de Acessibilidade VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 </body>
 
 </html>

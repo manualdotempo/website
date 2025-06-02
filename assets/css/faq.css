@@ -9,20 +9,76 @@
 
 .perguntas li {
     align-items: start;
-    width: 80%;
+    width: 100%;
+    min-width: 300px;
     padding: 2rem 3rem;
     border-radius: 1.5rem;
-    background: #D3E5E6;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
+    background: white;
+    gap: 0;
+}
+
+.pergunta,
+.secao1,
+.secao1 aside {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pergunta {
+    width: 100%;
+
+    & img {
+        height: 2rem;
+    }
 }
 
 .resposta {
-    display: none;
+    visibility: collapse;
     width: 100%;
     padding-block: 2rem;
     border-top: rgba(0, 0, 0, 0.5) solid 0.2rem;
+    margin-top: 3vh;
     color: rgba(0, 0, 0, 0.5);
+    transform: translateY(-4rem);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .resposta.ativa {
-    display: flex;
+    visibility: visible;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.secao1 {
+    align-items: start;
+    gap: 2vw;
+}
+
+.secao1 aside {
+    justify-content: center;
+    flex-flow: column;
+    min-height:40vh;
+    padding: 4rem;
+    border-radius: 6rem;
+    gap: 4vh;
+    background: #D3E5E6;
+
+    & img {
+        height: 10rem;
+    }
+}
+
+.secao1 .botao {
+    font-size: 2.4rem;
+    padding-inline: 4rem;
+}
+
+@media (max-width: 600px) {
+    .secao1 {
+        flex-flow: column-reverse;
+        gap: 5vh;
+    }
 }

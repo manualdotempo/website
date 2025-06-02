@@ -47,32 +47,57 @@
             <h1>Dúvidas Frequentes</h1>
             <p>Tem alguma pergunta? acesse aqui as mais frequentes</p>
         </section>
-        <ul class="perguntas">
-            <li>
-                <p class="pergunta">Pergunta 1</p>
-                <p class="resposta">Resposta da pergunta</p>
-            </li>
-            <li>
-                <p class="pergunta">Pergunta 1</p>
-                <p class="resposta">Resposta da pergunta</p>
-            </li>
-            <li>
-                <p class="pergunta">Pergunta 1</p>
-                <p class="resposta">Resposta da pergunta</p>
-            </li>
-            <li>
-                <p class="pergunta">Pergunta 1</p>
-                <p class="resposta">Resposta da pergunta</p>
-            </li>
-            <li>
-                <p class="pergunta">Pergunta 1</p>
-                <p class="resposta">Resposta da pergunta</p>
-            </li>
-            <li>
-                <p class="pergunta">Pergunta 1</p>
-                <p class="resposta">Resposta da pergunta</p>
-            </li>
-        </ul>
+        <section class="secao1">
+            <aside>
+                <img src="../assets/images/modelo.png" alt="ícone de perguntas e respostas">
+                <h2>Algo mais específico? Fale com a gente!</h2>
+                <a class="botao" href="./contato.html">Contato</a>
+            </aside>
+            <ul class="perguntas">
+                <li>
+                    <div class="pergunta">
+                        <p>Pergunta 1</p>
+                        <img src="../assets/images/icone-fechar.png" alt="icone de seta">
+                    </div>
+                    <p class="resposta">Resposta da pergunta</p>
+                </li>
+                <li>
+                    <div class="pergunta">
+                        <p>Pergunta 1</p>
+                        <img src="../assets/images/icone-fechar.png" alt="icone de seta">
+                    </div>
+                    <p class="resposta">Resposta da pergunta</p>
+                </li>
+                <li>
+                    <div class="pergunta">
+                        <p>Pergunta 1</p>
+                        <img src="../assets/images/icone-fechar.png" alt="icone de seta">
+                    </div>
+                    <p class="resposta">Resposta da pergunta</p>
+                </li>
+                <li>
+                    <div class="pergunta">
+                        <p>Pergunta 1</p>
+                        <img src="../assets/images/icone-fechar.png" alt="icone de seta">
+                    </div>
+                    <p class="resposta">Resposta da pergunta</p>
+                </li>
+                <li>
+                    <div class="pergunta">
+                        <p>Pergunta 1</p>
+                        <img src="../assets/images/icone-fechar.png" alt="icone de seta">
+                    </div>
+                    <p class="resposta">Resposta da pergunta</p>
+                </li>
+                <li>
+                    <div class="pergunta">
+                        <p>Pergunta 1</p>
+                        <img src="../assets/images/icone-fechar.png" alt="icone de seta">
+                    </div>
+                    <p class="resposta">Resposta da pergunta</p>
+                </li>
+            </ul>
+        </section>
     </main>
 
     <footer>
@@ -90,6 +115,18 @@
             </nav>
         </div>
     </footer>
+
+    <!-- API de Acessibilidade VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 </body>
 
 </html>
