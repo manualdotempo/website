@@ -1,12 +1,7 @@
+// Abrir e fechar menu header mobile
 const botaoMenu = document.querySelector('.abrir-menu')
 const menu = document.querySelector('.navegador-mobile')
 menu.style.display = 'none'
-
-document.querySelectorAll('.navegador-paginas a, .navegador-mobile a').forEach(link => {
-    if (link.pathname.split('/').pop() == window.location.pathname.split('/').pop()) {
-        link.classList.add('link-ativo')
-    }
-})
 
 botaoMenu.addEventListener('click', function () {
     if (menu.style.display == 'none') {
@@ -18,4 +13,18 @@ botaoMenu.addEventListener('click', function () {
         botaoMenu.style.content = 'none'
         document.body.style.position = 'relative'
     }
+})
+
+// Estilizar header conforme url da página
+document.querySelectorAll('.navegador-paginas a, .navegador-mobile a').forEach(link => {
+    if (link.pathname.split('/').pop() == window.location.pathname.split('/').pop()) {
+        link.classList.add('link-ativo')
+    }
+})
+
+// Abrir e fechar faq
+document.querySelectorAll('.perguntas li').forEach(pergunta => {
+    pergunta.addEventListener('click', function () {
+        pergunta.querySelector('.resposta').classList.toggle('ativa')
+    })
 })

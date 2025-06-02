@@ -1,0 +1,28 @@
+.perguntas,
+.perguntas li {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    width: 100%;
+    gap: 3vh;
+}
+
+.perguntas li {
+    align-items: start;
+    width: 80%;
+    padding: 2rem 3rem;
+    border-radius: 1.5rem;
+    background: #D3E5E6;
+}
+
+.resposta {
+    display: none;
+    width: 100%;
+    padding-block: 2rem;
+    border-top: rgba(0, 0, 0, 0.5) solid 0.2rem;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.resposta.ativa {
+    display: flex;
+}
