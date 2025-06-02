@@ -183,14 +183,21 @@ header {
 
   & li {
     margin-block: 2vh;
+    width: 100%;
   }
 }
 
+/* teste - deixar o alcançe máximo 100% do pai */
+.navegador-mobile a {
+  display: flex;
+  width: 100%;
+}
+
 .navegador-mobile a.link-ativo {
-  background: #D3E5E6;
-  padding-inline: 1rem 14rem;
+  padding-inline: 1rem;
   border-radius: 0.2rem;
   outline: #D3E5E6 solid 0.5rem;
+  background: #D3E5E6;
 }
 
 /* Padronização de main */
@@ -272,8 +279,12 @@ footer nav {
 }
 
 @media (max-width: 768px) {
-
   /* Ajuste de fontes */
+  *,
+  a {
+    font-size: 1.6rem;
+  }
+
   h1 {
     font-size: 4.2rem;
   }

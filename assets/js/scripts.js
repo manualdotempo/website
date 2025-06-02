@@ -12,8 +12,10 @@ botaoMenu.addEventListener('click', function () {
     if (menu.style.display == 'none') {
         menu.style.display = 'block'
         botaoMenu.style.content = 'url(../assets/images/icone-fechar.png)'
+        document.body.style.position = 'fixed'
     } else {
         menu.style.display = 'none'
         botaoMenu.style.content = 'none'
+        document.body.style.position = 'relative'
     }
 })

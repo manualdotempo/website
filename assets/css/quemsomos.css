@@ -1,0 +1,132 @@
+#quemsomos > *:not(:first-child) {
+    margin-bottom: 15vh;
+}
+
+/* seção 1 */
+.resumo {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-block: 4vh;
+    gap: 2vw;
+}
+
+.resumo img {
+    height: 50vh;
+    width: 160%;
+}
+
+/* seção 2 */
+.valores-container {
+    padding-block: 10vh;
+    padding-block: 2rem;
+    position: relative;
+}
+
+.valores-container::after {
+    background: #D3E5E6;
+    height: 100%;
+    width: 108%;
+    border-radius: 2rem;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -4%;
+    z-index: -1;
+}
+
+.valores {
+    display: flex;
+    gap: 2vw;
+}
+
+.valores ul {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    margin-top: 2vh;
+    gap: 2vw;
+}
+
+.valores li {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    width: 100%;
+}
+
+.valores li img {
+    height: 20vh;
+    width: 25%;
+}
+
+.valores > img {
+    height: 60vh;
+    width: 60vw;
+}
+
+/* seção 3 */
+.integrantes img {
+    width: 15vw;
+    border-radius: 100vh;
+    object-fit: cover;
+}
+
+.integrantes ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.integrantes li {
+    max-width: 25vw;
+}
+
+.sociais {
+    display: flex;
+    gap: 2vw;
+}
+
+.sociais a {
+    display: flex;
+    height: 4rem;
+    width: 4rem;
+    background: url('../images/icone_linkedin.png') center/contain no-repeat;
+}
+
+.sociais a:first-child {
+    background-image: url('../images/icone_github.png');
+}
+
+/*--------------------- Media queries ---------------------*/
+@media (max-width: 600px) {
+    /* Ajustes seção 1 */
+    .resumo {
+        flex-flow: wrap;
+        gap: 2vh;
+    }
+
+    .resumo img {
+        width: 100%;
+    }
+
+    .integrantes img {
+        width: 100%;
+    }
+
+    /* Ajustes seção 2 */
+    .valores > img {
+        display: none;
+    }
+
+    /* Ajustes seção 3 */
+    .integrantes ul {
+        align-items: center;
+        flex-flow: column;
+        gap: 6vh;
+    }
+
+    .integrantes li {
+        width: 80%;
+        max-width: 80%;
+    }
+}
