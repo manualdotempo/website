@@ -1,11 +1,16 @@
+#landingpage > * {
+    margin-bottom: 5vh;
+}
+
 /* 1ª seção*/
 .hero {
     display: flex;
     justify-content: right;
     align-items: center;
-    background: #D3E5E6;
     padding: 2rem;
     border-radius: 1rem;
+    margin-top: 2vh;
+    background: #D3E5E6;
 }
 
 .hero-banner,

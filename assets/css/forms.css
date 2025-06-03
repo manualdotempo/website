@@ -1,0 +1,68 @@
+.form-section,
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+form,
+fieldset {
+    width: fit-content;
+}
+
+form,
+fieldset,
+input,
+textarea {
+    padding: none;
+    border: none;
+    margin: none;
+    outline: none;
+    width: 100%;
+}
+
+form {
+    width: 60%;
+    min-width: 300px;
+    gap: 2vh;
+}
+
+fieldset {
+    display: flex;
+    flex-flow: column;
+    gap: 3vh;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    outline: rgba(0, 0, 0, 0.2) solid 0.2rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+input,
+textarea {
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+
+label {
+    padding-inline: 1rem;
+    background: white;
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: -1.25rem;
+    left: 1.5rem;
+}
+
+.erro {
+    outline-color: rgba(255, 0, 0, 0.6);
+    
+    & label {
+        color: rgba(255, 0, 0, 0.8);
+    }
+}

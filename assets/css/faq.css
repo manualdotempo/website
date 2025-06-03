@@ -31,6 +31,8 @@
 
     & img {
         height: 2rem;
+        opacity: 0.6;
+        transition: transform 0.5s ease;
     }
 }
 
@@ -52,6 +54,10 @@
     opacity: 1;
 }
 
+img.rodar {
+    transform: rotate(180deg);
+}
+
 .secao1 {
     align-items: start;
     gap: 2vw;
@@ -67,7 +73,7 @@
     background: #D3E5E6;
 
     & img {
-        height: 10rem;
+        height: 8rem;
     }
 }
 
@@ -76,6 +82,7 @@
     padding-inline: 4rem;
 }
 
+/*--------------------- Media queries ---------------------*/
 @media (max-width: 600px) {
     .secao1 {
         flex-flow: column-reverse;

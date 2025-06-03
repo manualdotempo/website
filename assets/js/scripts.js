@@ -26,5 +26,6 @@ document.querySelectorAll('.navegador-paginas a, .navegador-mobile a').forEach(l
 document.querySelectorAll('.perguntas li').forEach(pergunta => {
     pergunta.addEventListener('click', function () {
         pergunta.querySelector('.resposta').classList.toggle('ativa')
+        pergunta.querySelector('img').classList.toggle('rodar')
     })
 })

@@ -8,6 +8,7 @@
 
     <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/forms.css">
     <script src="../assets/js/scripts.js" defer></script>
 </head>
 
@@ -19,11 +20,10 @@
             <nav class="navegador-paginas">
                 <ul>
                     <li><a href="./home.html">Início</a></li>
-                    <li><a href="./modelo.html">Extra1</a></li>
-                    <li><a href="../index.html">Extra2</a></li>
                     <li><a href="./quemsomos.html">Quem Somos</a></li>
                     <li><a href="./faq.html">Dúvidas</a></li>
                     <li><a href="./contato.html">Contato</a></li>
+                    <li><a href="../index.html">Perfil</a></li>
                 </ul>
             </nav>
         </div>
@@ -31,12 +31,10 @@
         <nav class="navegador-mobile">
             <ul>
                 <li><a href="./home.html">Início</a></li>
-                <li><a href="./modelo.html">Extra1</a></li>
-                <li><a href="../index.html">Extra2</a></li>
                 <li><a href="./quemsomos.html">Quem Somos</a></li>
                 <li><a href="./faq.html">Dúvidas</a></li>
                 <li><a href="./contato.html">Contato</a></li>
-                <li><a href="./contato.html">Perfil</a></li>
+                <li><a href="../index.html">Perfil</a></li>
             </ul>
         </nav>
     </header>
@@ -44,24 +42,29 @@
     <main id="contato">
         <section class="titulo">
             <h1>Contato</h1>
-            <p>Breve descrição ou algo do tipo</p>
+            <p>Não tenha medo de mandar uma mensagem! Respondemos uma por uma.</p>
         </section>
-        <section>
+        <section class="form-section">
             <form class="contato-form">
                 <fieldset>
-                    <div>
-                        <label for=""></label>
-                        <input type="text" name="" id="">
+                    <div class="input-container">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome">
                     </div>
-                    <div>
-                        <label for=""></label>
-                        <input type="text" name="" id="">
+                    <div class="input-container">
+                        <label for="email">E-mail</label>
+                        <input type="text" name="email" id="email">
                     </div>
-                    <div>
-                        <label for=""></label>
-                        <input type="text" name="" id="">
+                    <div class="input-container">
+                        <label for="assunto">Assunto</label>
+                        <input type="text" name="assunto" id="assunto">
+                    </div>
+                    <div class="input-container">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea name="mensagem" id="mensagem" maxlength="1000" rows="4"></textarea>
                     </div>
                 </fieldset>
+                <button class="botao" type="submit">Enviar mensagem</button>
             </form>
         </section>
     </main>
