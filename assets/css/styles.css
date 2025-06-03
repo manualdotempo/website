@@ -57,6 +57,7 @@ body {
   flex-flow: column;
   height: 90vh;
   margin-top: 10vh;
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -118,7 +119,7 @@ header {
 /* Botões do header pós entrada */
 .navegador-paginas {
   position: absolute;
-  bottom: -4vh;
+  bottom: -2.7rem;
   right: 1vw;
 
   & ul {
@@ -147,7 +148,7 @@ header {
 .navegador-paginas a.link-ativo {
   background: #D3E5E6;
   box-shadow: none;
-  transform: translateY(0.75vh);
+  transform: translateY(1rem);
 }
 
 /* Menu hamburguer para responsividade */

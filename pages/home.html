@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,9 @@
     <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../assets/js/scripts.js" defer></script>
 </head>
 
@@ -44,22 +47,87 @@
             <h1>Página Inicial</h1>
             <p>Breve descrição ou algo do tipo</p>
         </section>
+        <!-- CLIMA API WIDGET -->
         <section class="clima-section">
-            <ul class="display-clima">
-                <h2>Clima de hoje em <span class="valor-localizacao">localização</span></h2>
-                <li class="temperatura">
-                    <img src="../assets/images/modelo.png" alt="icone do clima atual">
-                    <p><span class="valor-temperatura">18</span> °C</p>
-                </li>
-                <li class="vento">
-                    <p>Vento:</p>
-                    <p><span class="valor-vento">5</span> km/h</p>
-                </li>
-                <li class="umidade">
-                    <p>Umidade:</p>
-                    <p><span class="valor-umidade">80</span>%</p>
-                </li>
-            </ul>
+            <div id="container">
+                <form id="search">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="search" name="city_name" id="city_name" placeholder="Buscar cidade">
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+
+                <div id="weather">
+                    <h1 id="title">Sao Paulo, BR</h1>
+
+                    <div id="infos">
+                        <div id="temp">
+                            <img id="temp_img" src="http://openweathermap.org/img/wn/04d@2x.png" alt="">
+                            <div>
+                                <p id="temp_value">
+                                    32
+                                </p>
+                                <p id="temp_description">
+                                    Ensolarado
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="other_infos">
+                            <div class="info">
+                                <i id="temp_max_icon" class="fa-solid fa-temperature-high"></i>
+
+                                <div>
+                                    <h2>temp. max</h2>
+
+                                    <p id="temp_max">
+                                        32 <sup>°C</sup>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="info">
+                                <i id="temp_min_icon" class="fa-solid fa-temperature-low"></i>
+
+                                <div>
+                                    <h2>temp. min</h2>
+
+                                    <p id="temp_min">
+                                        11 <sup>°C</sup>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="info">
+                                <i id="humidity_icon" class="fa-solid fa-droplet"></i>
+
+                                <div>
+                                    <h2>Umidade</h2>
+
+                                    <p id="humidity">
+                                        50%
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="info">
+                                <i id="wind_icon" class="fa-solid fa-wind"></i>
+
+                                <div>
+                                    <h2>Vento</h2>
+
+                                    <p id="wind">
+                                        50 km/h
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="alert"></div>
+            </div>
         </section>
         <section>
             <h2>Acesse as dicas de como se preparar</h2>
@@ -87,7 +155,8 @@
     <footer>
         <div class="limite-container">
             <section>
-                <a href="./home.html"><img class="logo" src="../assets/images/variante-logo.png" alt="logo da manual do tempo"></a>
+                <a href="./home.html"><img class="logo" src="../assets/images/variante-logo.png"
+                        alt="logo da manual do tempo"></a>
                 <p>© 2025 Manual do Tempo. Todos os direitos reservados</p>
             </section>
             <nav>

@@ -22,46 +22,144 @@
     background: #D3E5E6;
 }
 
+/* CSS API CLIMA */
 .clima-section {
     display: flex;
-    justify-content: right;
-    margin-block: 5vh 10vh;
-}
-
-.display-clima {
-    display: flex;
     align-items: center;
-    flex-flow: column;
-    gap: 2vh;
-    width: fit-content;
-    padding: 4rem;
+    justify-content: center;
+    padding: 2rem;
     border-radius: 2rem;
-    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
+    margin-block: 2vh 6vh;
+    background: linear-gradient(#3b82f6,#4a7dff);
 }
 
-.temperatura,
-.vento,
-.umidade {
+#container{
+    background-color: #f0f8ff;
+    border-radius: 2rem;
+    padding: 18px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+#search {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 0.8rem;
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+    padding: 4px 12px;
+}
+
+#search input{
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
     width: 100%;
 }
 
-.temperatura {
-    justify-content: left;
-    gap: 2vw;
-
-    & p,
-    p * {
-        font-size: 3.5rem;
-    }
-
-    & img {
-        height: 5rem;
-    }
+#search input:focus-visible{
+    outline: none;
 }
 
-.valor-localizacao {
+#search button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#weather{
+    display: none;
+    margin-top: 2rem;
+}
+
+#weather.show{
     display: block;
+}
+
+#weather #title{
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #372f3f;
+}
+
+#temp{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    background: linear-gradient(90deg, #5a7cdc,#606dde);
+    color: #fff;
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+#temp_img{
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+#temp_value{
+    font-weight: bold;
+    font-size: 5rem;
+    line-height: 5.5rem;
+}
+
+#temp_description{
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+#other_infos{
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+#other_infos .info{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 4px 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    gap: 10px;
+}
+
+#other_infos .info h2{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#other_infos .info i{
+    text-align: center;
+    font-size: 2rem;
+    width: 20%;
+}
+
+#temp_max_icon{
+    color: #7f1d1d
+}
+
+#temp_min_icon{
+    color: #0284c7
+}
+
+#humidity_icon{
+    color: #0ea5e9
+}
+
+#wind_icon{
+    color: #7c3aed
+}
+
+#alert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#alert img{
+    width: 20rem;
+    margin-top: 2rem;
 }
