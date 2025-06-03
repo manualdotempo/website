@@ -47,9 +47,27 @@
             <h1>Página Inicial</h1>
             <p>Breve descrição ou algo do tipo</p>
         </section>
-        
+
         <!-- CLIMA API WIDGET -->
         <section class="clima-section">
+            <section class="alerta-section">
+                <h2>Checar locais seguros e se tem alertas para sua região</h2>
+                <form id="pesquisar-local">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="search" name="localizacao" id="localizacao" placeholder="Informe sua localização">
+                </form>
+                <div>
+                    <a id="alertas" class="botao">Verificar Alertas</a>
+                    <a id="abrigos" class="botao">Conferir abrigos</a>
+                </div>
+
+                <dialog>
+                    <div class="fechar"></div>
+                    <h2>Alerta de Evento Climático</h2>
+                    <p class="nome">Evento climático aqui</p>
+                    <p class="instrucao">Instrução se tiver evento</p>
+                </dialog>
+            </section>
             <div id="container">
                 <form id="search">
                     <i class="fa-solid fa-location-dot"></i>
@@ -159,28 +177,10 @@
                 </li>
             </ul>
         </section>
-        <section class="alerta-section">
-            <h2>Checar locais seguros e se tem alertas para sua região</h2>
-            <form id="pesquisar-local">
-                <i class="fa-solid fa-location-dot"></i>
-                <input type="search" name="localizacao" id="localizacao" placeholder="Informe sua localização">
-            </form>
-            <div>
-                <a id="alertas" class="botao">Verificar Alertas</a>
-                <a id="abrigos" class="botao">Conferir abrigos</a>
-            </div>
-
-            <dialog>
-                <div class="fechar"></div>
-                <h2>Alerta de Evento Climático</h2>
-                <p class="nome">Evento climático aqui</p>
-                <p class="instrucao">Instrução se tiver evento</p>
-            </dialog>
-        </section>
         <section class="modo-panico">
             <h2>Modo Pânico</h2>
             <p>Envie sua localização para um contato de emergência.</p>
-
+            <a class="botao variante">Ativar Modo Pânico</a>
         </section>
     </main>
 

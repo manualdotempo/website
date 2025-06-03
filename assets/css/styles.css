@@ -108,7 +108,7 @@ button {
   min-width: 12rem;
   padding: 1rem 1.25rem;
   border-radius: 1rem;
-  background: #214EE5;
+  background: linear-gradient(90deg, #5a7cdc, #606dde);
   color: white;
   font-size: 1.5rem;
   font-weight: 600;
@@ -209,7 +209,7 @@ main {
 /* Conteúdo inicial (titulo) */
 .titulo {
   padding: 4rem;
-  border-radius:0 0 4rem 4rem;
+  border-radius: 0 0 4rem 4rem;
   background: #D3E5E6;
   transform: translateY(-2rem);
 }

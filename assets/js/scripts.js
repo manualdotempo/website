@@ -134,3 +134,39 @@ document.querySelector('#abrigos').addEventListener('click', function () {
         modal.showModal()
     }
 })
+
+/* 
+// Testes
+const formLocal = document.querySelector('#pesquisar-local')
+const modal = document.querySelector('dialog')
+const inputLocal = formLocal.querySelector('input')
+var eventoClimatico = 'Chuva Intensa'
+
+formLocal.addEventListener('submit', function (element) {
+    element.preventDefault()
+})
+
+document.querySelector('#alertas').addEventListener('click', function () {
+    if (inputLocal.value == '') {
+        alert('preencha')
+    } else {
+        modal.querySelector('h2').innerText = `Evento climático em ${formLocal.querySelector('input').value.trim()}`
+        modal.querySelector('.nome').innerText = `Chances de ${eventoClimatico}!`
+        modal.querySelector('.instrucao').innerText = `Acesse as dicas para se preparar e procure locais seguros acima.`
+        modal.showModal()
+    }
+})
+
+document.querySelector('#abrigos').addEventListener('click', function () {
+    if (formLocal.querySelector('input').value == '') {
+        alert('preencha')
+    } else {
+        window.location.href = 'abrigos.html'
+    }
+})
+
+document.querySelector('dialog .fechar').addEventListener('click', function () {
+    modal.close()
+})
+
+*/

@@ -1,0 +1,32 @@
+.abrigos {
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+    padding: 2rem;
+    border-radius: 2rem;
+    margin-block: 2vh 6vh;
+    gap: 4vh 2vw;
+    background: linear-gradient(135deg, #e5ebf5 50%, #cfddf5 100%);
+}
+
+.abrigos li {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-flow: column;
+    height: 50vh;
+    max-width: fit-content;
+    flex-grow: 1;
+    flex-basis: 300px;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f0f8ff;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.abrigos img {
+    height: 60%;
+    width: 100%;
+    margin-bottom: 2vh;
+    object-fit: cover;
+}

@@ -19,29 +19,31 @@
 }
 
 .lista-dicas a {
+    height: 100%;
+    width: 100%;
+    background: #D3E5E6;
+}
+
+.lista-dicas a,
+.clima-section,
+.modo-panico {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
-    width: 100%;
     padding: 2rem;
     border-radius: 2rem;
-    background: #D3E5E6;
 }
 
 /* CSS API CLIMA */
 .clima-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    border-radius: 2rem;
+    align-items: end;
     margin-block: 2vh 6vh;
-    background: linear-gradient(135deg, #e5ebf5 50%,#cfddf5 100%);
+    gap: 2vh 2vw;
+    background: linear-gradient(135deg, #e5ebf5 50%, #cfddf5 100%);
 }
 
 #container,
-.alerta-section{
+.alerta-section {
     background-color: #f0f8ff;
     border-radius: 2rem;
     padding: 18px;
@@ -78,56 +80,56 @@
     cursor: pointer;
 }
 
-#weather{
+#weather {
     display: none;
     margin-top: 2rem;
 }
 
-#weather.show{
+#weather.show {
     display: block;
 }
 
-#weather #title{
+#weather #title {
     text-align: center;
     margin-bottom: 5px;
     font-weight: 600;
     color: #372f3f;
 }
 
-#temp{
+#temp {
     display: flex;
     align-items: center;
     justify-content: space-around;
     gap: 2rem;
-    background: linear-gradient(90deg, #5a7cdc,#606dde);
+    background: linear-gradient(90deg, #5a7cdc, #606dde);
     color: #fff;
     border-radius: 2rem;
     padding: 2rem;
 }
 
-#temp_img{
+#temp_img {
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
 }
 
-#temp_value{
+#temp_value {
     font-weight: bold;
     font-size: 5rem;
     line-height: 5.5rem;
 }
 
-#temp_description{
+#temp_description {
     font-weight: 500;
     text-transform: capitalize;
 }
 
-#other_infos{
+#other_infos {
     margin-top: 3rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
-#other_infos .info{
+#other_infos .info {
     display: flex;
     align-items: center;
     justify-content: start;
@@ -138,30 +140,30 @@
     gap: 10px;
 }
 
-#other_infos .info h2{
+#other_infos .info h2 {
     font-size: 1.2rem;
     font-weight: 600;
 }
 
-#other_infos .info i{
+#other_infos .info i {
     text-align: center;
     font-size: 2rem;
     width: 20%;
 }
 
-#temp_max_icon{
+#temp_max_icon {
     color: #7f1d1d
 }
 
-#temp_min_icon{
+#temp_min_icon {
     color: #0284c7
 }
 
-#humidity_icon{
+#humidity_icon {
     color: #0ea5e9
 }
 
-#wind_icon{
+#wind_icon {
     color: #7c3aed
 }
 
@@ -171,15 +173,14 @@
     align-items: center;
 }
 
-#alert img{
+#alert img {
     width: 20rem;
     margin-top: 2rem;
 }
 
 .alerta-section {
-    width: 80%;
-    min-width: 300px;
-    margin: 0 auto;
+    width: 50%;
+    min-width: 250px;
 }
 
 .alerta-section .botao {
@@ -216,7 +217,39 @@ dialog {
     box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
 }
 
+.modo-panico {
+    flex-flow: column;
+    gap: 2vh;
+    background: #5a7cdc url('../images/background-panico.png') center/auto 150%;
+}
+
+.modo-panico .botao {
+    width: 40%;
+    min-width: 200px;
+}
+
 /*--------------------- Media queries ---------------------*/
+@media (max-width: 768px) {
+    .clima-section {
+        flex-flow: column;
+    }
+
+    .alerta-section {
+        width: 100%;
+        order: 1;
+    }
+
+    .alerta-section div {
+        justify-content: center;
+        flex-flow: wrap;
+        gap: 2vh;
+
+        & .botao {
+            min-width: 200px;
+        }
+    }
+}
+
 @media (min-width: 982px) {
     .lista-dicas li {
         flex-basis: 400px;
