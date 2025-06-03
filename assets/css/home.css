@@ -1,0 +1,67 @@
+.lista-dicas {
+    display: flex;
+    flex-flow: wrap;
+    width: 100%;
+    margin-block: 2vh 10vh;
+    gap: 2vh;
+}
+
+.lista-dicas img {
+    height: 100%;
+}
+
+.lista-dicas li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    flex-basis: 400px;
+    height: 20vh;
+    padding: 2rem;
+    border-radius: 2rem;
+    background: #D3E5E6;
+}
+
+.clima-section {
+    display: flex;
+    justify-content: right;
+    margin-block: 5vh 10vh;
+}
+
+.display-clima {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    gap: 2vh;
+    width: fit-content;
+    padding: 4rem;
+    border-radius: 2rem;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+
+.temperatura,
+.vento,
+.umidade {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.temperatura {
+    justify-content: left;
+    gap: 2vw;
+
+    & p,
+    p * {
+        font-size: 3.5rem;
+    }
+
+    & img {
+        height: 5rem;
+    }
+}
+
+.valor-localizacao {
+    display: block;
+}
