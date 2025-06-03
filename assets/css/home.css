@@ -14,7 +14,7 @@
 
 .lista-dicas li {
     flex-grow: 1;
-    flex-basis: 400px;
+    flex-basis: 300px;
     height: 15vh;
 }
 
@@ -29,19 +29,6 @@
     background: #D3E5E6;
 }
 
-.alerta-section {
-    width: 45%;
-    min-width: 300px;
-    padding: 2rem;
-    border-radius: 2rem;
-    background: #D3E5E6;
-    
-    & .botao {
-        margin-top: 4vh;
-        width: 40%;
-    }
-}
-
 /* CSS API CLIMA */
 .clima-section {
     display: flex;
@@ -53,14 +40,16 @@
     background: linear-gradient(135deg, #e5ebf5 50%,#cfddf5 100%);
 }
 
-#container{
+#container,
+.alerta-section{
     background-color: #f0f8ff;
     border-radius: 2rem;
     padding: 18px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
-#search {
+#search,
+#pesquisar-local {
     display: flex;
     align-items: center;
     gap: 0.8rem;
@@ -69,18 +58,21 @@
     padding: 4px 12px;
 }
 
-#search input{
+#search input,
+#pesquisar-local input {
     border: none;
     background-color: transparent;
     font-size: 16px;
     width: 100%;
 }
 
-#search input:focus-visible{
+#search input:focus-visible,
+#pesquisar-local input:focus-visible {
     outline: none;
 }
 
-#search button {
+#search button,
+#pesquisar-local button {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -182,4 +174,51 @@
 #alert img{
     width: 20rem;
     margin-top: 2rem;
+}
+
+.alerta-section {
+    width: 80%;
+    min-width: 300px;
+    margin: 0 auto;
+}
+
+.alerta-section .botao {
+    width: 45%;
+}
+
+.alerta-section div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#pesquisar-local {
+    display: flex;
+    justify-content: space-between;
+    margin-block: 4vh;
+}
+
+.fechar {
+    height: 4rem;
+    width: 4rem;
+    border: 1rem solid #606dde;
+    border-radius: 4rem;
+    margin-bottom: 2rem;
+    background: #606dde url('../images/icone-fechar.png') center/contain no-repeat;
+}
+
+/* Pop up para emitir alerta/locais seguros */
+dialog {
+    padding: 4rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    margin: auto;
+    outline: none;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+
+/*--------------------- Media queries ---------------------*/
+@media (min-width: 982px) {
+    .lista-dicas li {
+        flex-basis: 400px;
+    }
 }

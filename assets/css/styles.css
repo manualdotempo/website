@@ -98,11 +98,15 @@ header {
 }
 
 /* Botões */
+button {
+  border: none;
+}
+
 .botao {
   display: flex;
   justify-content: center;
   min-width: 12rem;
-  padding: 0.75rem 1.25rem;
+  padding: 1rem 1.25rem;
   border-radius: 1rem;
   background: #214EE5;
   color: white;
@@ -214,8 +218,10 @@ main {
 footer {
   width: 100vw;
   padding: 2vh 0 4vh 0;
+  margin-top: 5vh;
   background: #313131;
   z-index: 2;
+  order: 1;
 
   & p,
   a {
@@ -247,7 +253,7 @@ footer nav {
     border-radius: 0 0 1rem 1rem;
     box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
     position: absolute;
-    bottom: -6vh;
+    bottom: -5rem;
     right: 1vw;
 
     & a {

@@ -1,3 +1,16 @@
+// Chatbot
+window.watsonAssistantChatOptions = {
+    integrationID: "9fe52e2d-b1ff-45a2-927f-2b49053269b0", // The ID of this integration.
+    region: "us-south", // The region your integration is hosted in.
+    serviceInstanceID: "d61db492-76f5-4eae-97da-0bd20514cee2", // The ID of your service instance.
+    onLoad: async (instance) => { await instance.render(); }
+};
+setTimeout(function () {
+    const t = document.createElement('script');
+    t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+});
+
 if (document.querySelector('#search')) {
     document.querySelector('#search').addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -38,6 +51,7 @@ if (document.querySelector('#search')) {
         }
     });
 }
+
 function showInfo(json) {
     showAlert('');
 
@@ -58,9 +72,6 @@ function showInfo(json) {
 function showAlert(msg) {
     document.querySelector('#alert').innerHTML = msg;
 }
-
-
-
 
 // Abrir e fechar menu header mobile
 const botaoMenu = document.querySelector('.abrir-menu')
@@ -92,4 +103,34 @@ document.querySelectorAll('.perguntas li').forEach(pergunta => {
         pergunta.querySelector('.resposta').classList.toggle('ativa')
         pergunta.querySelector('img').classList.toggle('rodar')
     })
+})
+
+// Emitir alerta
+const formLocal = document.querySelector('#pesquisar-local')
+const modal = document.querySelector('dialog')
+
+formLocal.addEventListener('submit', function (element) {
+    element.preventDefault()
+})
+
+document.querySelector('dialog .fechar').addEventListener('click', function () {
+    modal.close()
+})
+
+document.querySelector('#alertas').addEventListener('click', function () {
+    if (formLocal.querySelector('input').value == '') {
+        alert('preencha')
+    } else {
+        modal.querySelector('h2').innerText = `Evento climático em ${formLocal.querySelector('input').value}`
+        modal.showModal()
+    }
+})
+
+document.querySelector('#abrigos').addEventListener('click', function () {
+    if (formLocal.querySelector('input').value == '') {
+        alert('preencha')
+    } else {
+        modal.querySelector('h2').innerText = `Locais seguros para ${formLocal.querySelector('input').value}`
+        modal.showModal()
+    }
 })

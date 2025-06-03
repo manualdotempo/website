@@ -38,10 +38,8 @@
 
 .resposta {
     visibility: collapse;
+    height: 0;
     width: 100%;
-    padding-block: 2rem;
-    border-top: rgba(0, 0, 0, 0.5) solid 0.2rem;
-    margin-top: 3vh;
     color: rgba(0, 0, 0, 0.5);
     transform: translateY(-4rem);
     opacity: 0;
@@ -50,6 +48,10 @@
 
 .resposta.ativa {
     visibility: visible;
+    height: fit-content;
+    padding-block: 2rem;
+    border-top: rgba(0, 0, 0, 0.5) solid 0.2rem;
+    margin-top: 3vh;
     transform: translateY(0);
     opacity: 1;
 }
