@@ -8,18 +8,38 @@
 
 .lista-dicas img {
     height: 100%;
+    width: 40%;
+    object-fit: cover;
 }
 
 .lista-dicas li {
+    flex-grow: 1;
+    flex-basis: 400px;
+    height: 15vh;
+}
+
+.lista-dicas a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-grow: 1;
-    flex-basis: 400px;
-    height: 20vh;
+    height: 100%;
+    width: 100%;
     padding: 2rem;
     border-radius: 2rem;
     background: #D3E5E6;
+}
+
+.alerta-section {
+    width: 45%;
+    min-width: 300px;
+    padding: 2rem;
+    border-radius: 2rem;
+    background: #D3E5E6;
+    
+    & .botao {
+        margin-top: 4vh;
+        width: 40%;
+    }
 }
 
 /* CSS API CLIMA */
@@ -30,7 +50,7 @@
     padding: 2rem;
     border-radius: 2rem;
     margin-block: 2vh 6vh;
-    background: linear-gradient(#3b82f6,#4a7dff);
+    background: linear-gradient(135deg, #e5ebf5 50%,#cfddf5 100%);
 }
 
 #container{
