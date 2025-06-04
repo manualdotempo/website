@@ -23,6 +23,11 @@
     position: relative;
 }
 
+.valores-container p{
+    font-size: 2rem;
+    
+}
+
 .valores-container::after {
     background: #D3E5E6;
     height: 100%;
@@ -38,6 +43,17 @@
 .valores {
     display: flex;
     gap: 2vw;
+}
+
+.valores li h4{
+    font-weight: bold;
+    font-size: 2.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.valores li p{
+    font-size: 1.8rem;
+    color: #444;
 }
 
 .valores ul {
@@ -61,8 +77,9 @@
 }
 
 .valores > img {
+    margin-top: 1.5rem;
     height: 60vh;
-    width: 60vw;
+    width: 45vw;
 }
 
 /* seção 3 */
