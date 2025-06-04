@@ -34,9 +34,14 @@
     border-radius: 2rem;
 }
 
+.lista-dicas img {
+    width: 10rem;
+    height: 10rem;
+}
+
 /* CSS API CLIMA */
 .clima-section {
-    align-items: end;
+    align-items: center;
     margin-block: 2vh 6vh;
     gap: 2vh 2vw;
     background: linear-gradient(135deg, #e5ebf5 50%, #cfddf5 100%);

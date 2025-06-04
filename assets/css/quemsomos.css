@@ -6,14 +6,17 @@
 .resumo {
     display: flex;
     justify-content: space-between;
-    align-items: end;
     padding-block: 4vh;
     gap: 2vw;
 }
 
 .resumo img {
-    height: 50vh;
-    width: 160%;
+    height: 50rem;
+    width: 50rem;
+}
+
+.resumo p{
+    display: flex;
 }
 
 /* seção 2 */
