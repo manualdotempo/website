@@ -96,35 +96,219 @@ document.querySelectorAll('.perguntas li').forEach(pergunta => {
     })
 })
 
+
+// 
+function toTitleCase(string) {
+    return string
+        .toLowerCase()
+        .split(' ')
+        .map(palavra => palavra.charAt(0).toUpperCase() + palavra.slice(1))
+        .join(' ')
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const localizacaoInput = document.getElementById("localizacao");
+    const botaoAlertas = document.getElementById("alertas");
+    const botaoAbrigos = document.getElementById("abrigos");
+
+    const eventos = [
+        {
+            localizacao: "São Paulo",
+            tipo: "Tempestade severa"
+        },
+        {
+            localizacao: "Rio de Janeiro",
+            tipo: "Ondas de calor"
+        },
+        {
+            localizacao: "São Paulo",
+            tipo: "Chuvas intensas"
+        },
+        {
+            localizacao: "Curitiba",
+            tipo: "Nevasca inesperada"
+        }
+    ]
+
+    const listaAbrigos = [
+        {
+            nome: 'CRAS Mooca',
+            imagem: '../assets/images/abrigo1.png',
+            endereco: 'Rua Taquari, 549 – Mooca',
+            cidade: 'São Paulo',
+            avaliacao: '4',
+            telefone: '(11) 2383-4539 ou (11) 2383-4541',
+            recursos: 'abrigo, alimentação básica, proteção contra frio'
+        },
+        {
+            nome: 'Centro Esportivo Tietê',
+            imagem: '../assets/images/abrigo2.jpg',
+            endereco: 'Av. Santos Dumont, 843 – Luz',
+            cidade: 'São Paulo',
+            avaliacao: '4',
+            telefone: '(11) 3113-8000 ou (11) 95774-5830',
+            recursos: 'espaço amplo coberto, alimentação emergencial, banheiro'
+        },
+        {
+            nome: 'Terminal Rodoviário Tietê (emergencial)',
+            imagem: '../assets/images/abrigo3.jpg',
+            endereco: 'Av. Cruzeiro do Sul, 1800 – Santana',
+            cidade: 'São Paulo',
+            avaliacao: '3',
+            telefone: '(11) 3866-1100',
+            recursos: 'acesso a transporte, bancos, abrigo parcial'
+        },
+        {
+            nome: 'Casa de Passagem da Prefeitura (Centro)',
+            imagem: '../assets/images/abrigo4.jpeg',
+            endereco: 'R. do Glicério, 420 – Liberdade',
+            cidade: 'São Paulo',
+            avaliacao: '4',
+            telefone: '(11) 4035-2785',
+            recursos: 'abrigo, alimentação, banho, suporte social'
+        }
+    ]
+
+    if (botaoAlertas) {
+        botaoAlertas.addEventListener("click", () => {
+            const localizacaoDigitada = localizacaoInput?.value.trim();
+            if (!localizacaoDigitada) {
+                alert("Por favor, informe uma localização antes de verificar alertas.");
+                return;
+            }
+
+            const dialog = document.querySelector("dialog");
+            const tituloDialog = dialog.querySelector("h2");
+            const nomeEvento = dialog.querySelector(".nome");
+            const instrucaoEvento = dialog.querySelector(".instrucao");
+
+            const eventosCompativeis = eventos.filter(evento => evento.localizacao.toLowerCase() === localizacaoDigitada.toLowerCase());
+
+            if (eventosCompativeis.length > 0) {
+                tituloDialog.textContent = `Eventos climáticos em ${toTitleCase(localizacaoDigitada)}`;
+                nomeEvento.textContent = `ALERTA: Sua localização está vulnerável a ${eventosCompativeis.map(e => e.tipo).join(", ")}`;
+                instrucaoEvento.textContent = "Para se preparar, volte ao menu e acesse as dicas de preparo para eventos climáticos e localize abrigos para se proteger.";
+            } else {
+                tituloDialog.textContent = `Nenhum evento climático em ${toTitleCase(localizacaoDigitada)}`;
+                nomeEvento.style.display = "none";
+                instrucaoEvento.textContent = "Parece que não há alertas no momento, mas fique sempre preparado para possíveis eventos climáticos.";
+            }
+
+            dialog.querySelector('.fechar').addEventListener('click', function () {
+                dialog.close()
+            })
+
+            dialog.showModal();
+        });
+    }
+
+    if (botaoAbrigos) {
+        botaoAbrigos.addEventListener("click", () => {
+            const localizacaoDigitada = localizacaoInput?.value.trim();
+            if (!localizacaoDigitada) {
+                alert("Por favor, informe uma localização antes de conferir abrigos.");
+                return;
+            }
+
+            localStorage.setItem("localizacaoDigitada", localizacaoDigitada);
+            window.location.href = "abrigos.html";
+        });
+    }
+
+    if (window.location.pathname.includes("abrigos.html")) {
+        const localizacaoDigitada = localStorage.getItem("localizacaoDigitada");
+
+        if (!localizacaoDigitada) {
+            alert("Nenhuma localização foi inserida anteriormente. Volte e insira uma localização para conferir abrigos.");
+            return;
+        }
+
+        const abrigosCompativeis = listaAbrigos.filter(abrigo => abrigo.cidade.toLowerCase() === localizacaoDigitada.toLowerCase());
+        const abrigoLista = document.querySelector(".abrigos")
+
+        if (abrigosCompativeis.length > 0) {
+            abrigoLista.innerHTML = "";
+            abrigosCompativeis.forEach(abrigo => {
+                const li = document.createElement("li");
+                li.className = 'abrigo'
+
+                const img = document.createElement("img");
+                img.src = abrigo.imagem;
+                img.alt = "Imagem do abrigo";
+
+                const endereco = document.createElement("p");
+                endereco.className = "endereco";
+                endereco.innerHTML = `${abrigo.endereco}. ${abrigo.cidade}.`
+
+                const telefone = document.createElement("p");
+                telefone.className = "telefone";
+                telefone.textContent = abrigo.telefone;
+
+                const recursos = document.createElement("p");
+                recursos.innerHTML = `Recursos disponíveis: <span class="recursos">${abrigo.recursos}.</span>`;
+
+                const avaliacaoUl = document.createElement("ul");
+                avaliacaoUl.className = "avaliacao";
+                for (let i = 0; i < 5; i++) {
+                    const estrela = document.createElement("li");
+                    estrela.className = "estrela";
+                    if (i < abrigo.avaliacao) {
+                        estrela.classList.add("estrela-ativa");
+                    }
+                    avaliacaoUl.appendChild(estrela);
+                }
+
+                const botaoRotas = document.createElement("a");
+                botaoRotas.href = "#";
+                botaoRotas.className = "botao";
+                botaoRotas.textContent = "Conferir Rotas";
+
+                li.appendChild(img);
+                li.appendChild(avaliacaoUl);
+                li.appendChild(endereco);
+                li.appendChild(telefone);
+                li.appendChild(recursos);
+                li.appendChild(botaoRotas);
+
+                abrigoLista.appendChild(li);
+            })
+
+        } else {
+            abrigoLista.style.display = 'none'
+            document.querySelector(".sem-abrigos").style.display = "flex"
+        }
+    }
+});
+
 // Emitir alerta
-const formLocal = document.querySelector('#pesquisar-local')
-const modal = document.querySelector('dialog')
+// const formLocal = document.querySelector('#pesquisar-local')
+// const modal = document.querySelector('dialog')
 
-formLocal.addEventListener('submit', function (element) {
-    element.preventDefault()
-})
+// formLocal.addEventListener('submit', function (element) {
+//     element.preventDefault()
+// })
 
-document.querySelector('dialog .fechar').addEventListener('click', function () {
-    modal.close()
-})
+// document.querySelector('dialog .fechar').addEventListener('click', function () {
+//     modal.close()
+// })
 
-document.querySelector('#alertas').addEventListener('click', function () {
-    if (formLocal.querySelector('input').value == '') {
-        alert('preencha')
-    } else {
-        modal.querySelector('h2').innerText = `Evento climático em ${formLocal.querySelector('input').value}`
-        modal.showModal()
-    }
-})
+// document.querySelector('#alertas').addEventListener('click', function () {
+//     if (formLocal.querySelector('input').value == '') {
+//         alert('preencha')
+//     } else {
+//         modal.querySelector('h2').innerText = `Evento climático em ${formLocal.querySelector('input').value}`
+//         modal.showModal()
+//     }
+// })
 
-document.querySelector('#abrigos').addEventListener('click', function () {
-    if (formLocal.querySelector('input').value == '') {
-        alert('preencha')
-    } else {
-        modal.querySelector('h2').innerText = `Locais seguros para ${formLocal.querySelector('input').value}`
-        modal.showModal()
-    }
-})
+// document.querySelector('#abrigos').addEventListener('click', function () {
+//     if (formLocal.querySelector('input').value == '') {
+//         alert('preencha')
+//     } else {
+//         modal.querySelector('h2').innerText = `Locais seguros para ${formLocal.querySelector('input').value}`
+//         modal.showModal()
+//     }
+// })
 
 /* 
 // Testes
@@ -157,7 +341,7 @@ document.querySelector('#abrigos').addEventListener('click', function () {
 })
 
 document.querySelector('dialog .fechar').addEventListener('click', function () {
-    modal.close()
+    document.querySelector('dialog').close()
 })
 
 */
