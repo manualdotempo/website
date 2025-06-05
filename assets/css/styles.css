@@ -155,49 +155,38 @@ button {
   transform: translateY(1rem);
 }
 
-/* Menu hamburguer para responsividade */
 .abrir-menu {
-  display: none;
+  visibility: hidden;
   height: 2.5rem;
+  width: 2.5rem;
+  background: url('../images/icone-barras.png') center/contain no-repeat;
   z-index: 5;
+  transition: transform 0.3s ease;
 }
 
-.navegador-mobile {
-  display: none;
+/* Menu hamburguer para responsividade */
+.menu-aberto .abrir-menu {
+  background-image: url('../images/icone-fechar.png');
+  transform: rotate(90deg);
+}
+
+.menu-aberto .navegador-paginas {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.menu-aberto::before {
+  content: '';
   height: 100vh;
   width: 100vw;
   background: rgba(0, 0, 0, 0.4);
   position: fixed;
   top: 0;
+  left: 0;
 }
 
-.navegador-mobile ul {
-  height: 100vh;
-  width: 35vw;
-  min-width: 250px;
-  padding: 2rem;
-  padding-top: 12vh;
-  border-radius: 2vh 0 0 2vh;
-  background: white;
-  float: right;
-
-  & li {
-    margin-block: 2vh;
-    width: 100%;
-  }
-}
-
-/* teste - deixar o alcançe máximo 100% do pai */
-.navegador-mobile a {
-  display: flex;
-  width: 100%;
-}
-
-.navegador-mobile a.link-ativo {
-  padding-inline: 1rem;
-  border-radius: 0.2rem;
-  outline: #D3E5E6 solid 0.5rem;
-  background: #D3E5E6;
+.travar-body {
+  position: fixed;
 }
 
 /* Padronização de main */
@@ -285,11 +274,41 @@ footer nav {
 
   /* Ajuste de header pós entrada*/
   .abrir-menu {
-    display: flex;
+    visibility: visible;
   }
 
   .navegador-paginas {
-    display: none;
+    visibility: hidden;
+    height: 100vh;
+    width: 35vw;
+    min-width: 250px;
+    padding: 2rem;
+    padding-top: 12vh;
+    border-radius: 2rem 0 0 2rem;
+    background: white;
+    transform: translateX(35vw);
+    transition: transform 0.3s ease;
+    top: 0;
+    right: 0;
+
+    & ul {
+      flex-flow: column;
+      gap: 1vh;
+    }
+  }
+
+  .navegador-paginas a {
+    justify-content: left;
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+  }
+
+  .navegador-paginas a.link-ativo {
+    background: #D3E5E6;
+    transform: none;
   }
 
   /* Ajuste de posição dos links do footer */
