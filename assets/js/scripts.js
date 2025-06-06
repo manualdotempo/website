@@ -278,70 +278,41 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(".sem-abrigos").style.display = "flex"
         }
     }
+
 });
 
-// Emitir alerta
-// const formLocal = document.querySelector('#pesquisar-local')
-// const modal = document.querySelector('dialog')
+//Dialog - PANICO
+const botaoModoPanico = document.getElementById("botaoPanico");
 
-// formLocal.addEventListener('submit', function (element) {
-//     element.preventDefault()
-// })
+if (botaoModoPanico) {
+    botaoModoPanico.addEventListener("click", () => {
+        const numeroDigitada = document.querySelector("#modo-panico").value.trim();
+        if (!numeroDigitada) {
+            alert("Por favor, digite um numero antes de começar.");
+            return;
+        }
 
-// document.querySelector('dialog .fechar').addEventListener('click', function () {
-//     modal.close()
-// })
+        const dialog = document.querySelector(".dialogPanico");
+        const tituloPanico = dialog.querySelector("h2");
+        const locModoPanico = dialog.querySelector(".locModoPanico");
+        const ajudaPanico = dialog.querySelector(".ajudaPanico");
+        const ajudaModoPanico = dialog.querySelector(".ajudaModoPanico");
+        const pPanico = dialog.querySelector(".pPanico");
+        const p2Panico = dialog.querySelector(".p2Panico");
 
-// document.querySelector('#alertas').addEventListener('click', function () {
-//     if (formLocal.querySelector('input').value == '') {
-//         alert('preencha')
-//     } else {
-//         modal.querySelector('h2').innerText = `Evento climático em ${formLocal.querySelector('input').value}`
-//         modal.showModal()
-//     }
-// })
 
-// document.querySelector('#abrigos').addEventListener('click', function () {
-//     if (formLocal.querySelector('input').value == '') {
-//         alert('preencha')
-//     } else {
-//         modal.querySelector('h2').innerText = `Locais seguros para ${formLocal.querySelector('input').value}`
-//         modal.showModal()
-//     }
-// })
+            tituloPanico.textContent = "📍 Localização enviada!";
+            locModoPanico.textContent = "Enviamos sua localização para o número informado. Um alerta de emergência foi acionado.";
+            ajudaPanico.textContent = "📞 Ligue para ajuda imediata:";
+            ajudaModoPanico.innerHTML = "<ul><li>Bombeiros: 193<li><li>Defesa Civil: 199<li><ul>";
+            pPanico.textContent = "😌 Mantenha a calma.";
+            p2Panico.textContent = "Você não está sozinho. Respire fundo, busque um local seguro e siga as orientações da página inicial.";
+       
 
-/* 
-// Testes
-const formLocal = document.querySelector('#pesquisar-local')
-const modal = document.querySelector('dialog')
-const inputLocal = formLocal.querySelector('input')
-var eventoClimatico = 'Chuva Intensa'
+        dialog.querySelector('.dialogPanico .botao').addEventListener('click', function () {
+            dialog.close()
+        })
 
-formLocal.addEventListener('submit', function (element) {
-    element.preventDefault()
-})
-
-document.querySelector('#alertas').addEventListener('click', function () {
-    if (inputLocal.value == '') {
-        alert('preencha')
-    } else {
-        modal.querySelector('h2').innerText = `Evento climático em ${formLocal.querySelector('input').value.trim()}`
-        modal.querySelector('.nome').innerText = `Chances de ${eventoClimatico}!`
-        modal.querySelector('.instrucao').innerText = `Acesse as dicas para se preparar e procure locais seguros acima.`
-        modal.showModal()
-    }
-})
-
-document.querySelector('#abrigos').addEventListener('click', function () {
-    if (formLocal.querySelector('input').value == '') {
-        alert('preencha')
-    } else {
-        window.location.href = 'abrigos.html'
-    }
-})
-
-document.querySelector('dialog .fechar').addEventListener('click', function () {
-    document.querySelector('dialog').close()
-})
-
-*/
+        dialog.showModal();
+    });
+}

@@ -167,10 +167,24 @@
                 </li>
             </ul>
         </section>
+
         <section class="modo-panico">
             <h2>Modo Pânico</h2>
-            <p>Envie sua localização para um contato de emergência.</p>
-            <a class="botao variante">Ativar Modo Pânico</a>
+            <p>Envie sua localização para um contato de emergência. Digite o número de alguém de confiança que será avisado visualmente.</p>
+            <form id="modoPanico">
+                <i class="fa-solid fa-phone"></i>
+                <input type="search" name="modo-panico" id="modo-panico" placeholder="Número do contato">
+            </form>
+            <a id="botaoPanico" class="botao variante">Ativar Modo Pânico</a>
+            <dialog class="dialogPanico">
+                <h2>Modo Pânico</h2>
+                <p class="locModoPanico">Modo Pânico - localizacao</p>
+                <p class="ajudaPanico">Ligue agora</p>
+                <p class="ajudaModoPanico">Numeros SOS</p>
+                <p class="pPanico">Mantenha a calma</p>
+                <p class="p2Panico">Estamos com vc</p>
+                <div class="botao">Entendido</div>
+            </dialog>
         </section>
     </main>
 
