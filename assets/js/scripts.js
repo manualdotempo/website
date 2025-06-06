@@ -114,11 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const eventos = [
         {
             localizacao: "São Paulo",
-            tipo: "Tempestade severa"
+            tipo: "⛈️ Tempestade severa"
         },
         {
             localizacao: "Rio de Janeiro",
-            tipo: "Ondas de calor"
+            tipo: "☀️ Ondas de calor"
         },
         {
             localizacao: "São Paulo",
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             localizacao: "Curitiba",
-            tipo: "Nevasca inesperada"
+            tipo: "❄️ Nevasca inesperada"
         }
     ]
 
@@ -185,12 +185,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const eventosCompativeis = eventos.filter(evento => evento.localizacao.toLowerCase() === localizacaoDigitada.toLowerCase());
 
             if (eventosCompativeis.length > 0) {
-                tituloDialog.textContent = `Eventos climáticos em ${toTitleCase(localizacaoDigitada)}`;
+                tituloDialog.textContent = `🚨 Eventos climáticos em ${toTitleCase(localizacaoDigitada)}`;
                 nomeEvento.textContent = `ALERTA: Sua localização está vulnerável a ${eventosCompativeis.map(e => e.tipo).join(", ")}`;
                 nomeEvento.style.display = 'block'
                 instrucaoEvento.textContent = "Para se preparar, volte ao menu e acesse as dicas de preparo para eventos climáticos e localize abrigos para se proteger.";
             } else {
-                tituloDialog.textContent = `Nenhum evento climático em ${toTitleCase(localizacaoDigitada)}`;
+                tituloDialog.textContent = `❌ Nenhum evento climático em ${toTitleCase(localizacaoDigitada)}`;
                 nomeEvento.style.display = "none";
                 instrucaoEvento.textContent = "Parece que não há alertas no momento, mas fique sempre preparado para possíveis eventos climáticos.";
             }
@@ -329,7 +329,7 @@ botaoDicas.forEach(item => {
         // Conteúdo das dicas
         const dicas = [
             {
-                nome: 'Onda de calor',
+                nome: 'Onda de calor ☀️',
                 antes: [
                     'Hidrate-se com frequência, mesmo sem sede.',
                     'Prefira alimentos leves e frutas com alto teor de água.',
@@ -355,7 +355,7 @@ botaoDicas.forEach(item => {
                 ]
             },
             {
-                nome: 'Frio Intenso',
+                nome: 'Frio Intenso ❄️',
                 antes: [
                     'Use roupas em camadas: térmica, lã, moletom, jaqueta.',
                     'Proteja mãos, pés, cabeça e pescoço.',
@@ -377,7 +377,7 @@ botaoDicas.forEach(item => {
                 ]
             },
             {
-                nome: 'Chuvas Intensas',
+                nome: 'Chuvas Intensas ⛈️',
                 antes: [
                     'Fique de olho no nível de rios e alagamentos.',
                     'Evite deixar móveis ou eletrônicos no chão de casa.',
@@ -400,7 +400,7 @@ botaoDicas.forEach(item => {
                 ]
             },
             {
-                nome: 'Ventos Fortes',
+                nome: 'Ventos Fortes 🍃',
                 antes: [
                     'Retire vasos e objetos soltos de janelas e sacadas.',
                     'Reforce telhados e estruturas leves.',
