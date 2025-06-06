@@ -44,14 +44,15 @@
                 <h2>Checar locais seguros e se tem alertas para sua região</h2>
                 <form id="pesquisar-local">
                     <i class="fa-solid fa-location-dot"></i>
-                    <input type="search" name="localizacao" id="localizacao" placeholder="Informe sua localização">
+                    <input type="search" name="localizacao" id="localizacao" placeholder="Informe sua localização"
+                        required>
                 </form>
                 <div>
                     <a id="alertas" class="botao">Verificar Alertas</a>
                     <a id="abrigos" class="botao">Conferir abrigos</a>
                 </div>
 
-                <dialog>
+                <dialog class="alerta-dialog">
                     <div class="fechar"></div>
                     <h2>Alerta de Evento Climático</h2>
                     <p class="nome">Evento climático aqui</p>
@@ -142,25 +143,25 @@
             <h2>Acesse as dicas de como se preparar</h2>
             <ul class="lista-dicas">
                 <li>
-                    <a href="./dicas.html">
+                    <a>
                         <p>Ondas de calor</p>
                         <img src="../assets/images/onda-de-calor.png" alt="imagem de onda de calor">
                     </a>
                 </li>
                 <li>
-                    <a href="./dicas.html">
+                    <a>
                         <p>Frio extremo</p>
                         <img src="../assets/images/frio_extremo.svg" alt="imagem de onda de calor">
                     </a>
                 </li>
                 <li>
-                    <a href="./dicas.html">
+                    <a>
                         <p>Chuvas intensas</p>
                         <img src="../assets/images/chuvas_intensas.svg" alt="imagem de onda de calor">
                     </a>
                 </li>
                 <li>
-                    <a href="./dicas.html">
+                    <a>
                         <p>Ventos fortes</p>
                         <img src="../assets/images/ventos_fortes.svg" alt="imagem de onda de calor">
                     </a>
@@ -172,6 +173,29 @@
             <p>Envie sua localização para um contato de emergência.</p>
             <a class="botao variante">Ativar Modo Pânico</a>
         </section>
+
+        <dialog class="dicas-dialog">
+            <div class="fechar"></div>
+            <h2>Evento Climático</h2>
+            <section>
+                <h3>Antes</h3>
+                <ul class="antes">
+                    <li>conteúdo</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Durante</h3>
+                <ul class="durante">
+                    <li>conteúdo</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Depois</h3>
+                <ul class="depois">
+                    <li>conteúdo</li>
+                </ul>
+            </section>
+        </dialog>
     </main>
 
     <footer>
