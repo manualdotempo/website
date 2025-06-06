@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (eventosCompativeis.length > 0) {
                 tituloDialog.textContent = `Eventos climáticos em ${toTitleCase(localizacaoDigitada)}`;
                 nomeEvento.textContent = `ALERTA: Sua localização está vulnerável a ${eventosCompativeis.map(e => e.tipo).join(", ")}`;
-                nomeEvento.style.display ='block'
+                nomeEvento.style.display = 'block'
                 instrucaoEvento.textContent = "Para se preparar, volte ao menu e acesse as dicas de preparo para eventos climáticos e localize abrigos para se proteger.";
             } else {
                 tituloDialog.textContent = `Nenhum evento climático em ${toTitleCase(localizacaoDigitada)}`;
@@ -301,13 +301,13 @@ if (botaoModoPanico) {
         const p2Panico = dialog.querySelector(".p2Panico");
 
 
-            tituloPanico.textContent = "📍 Localização enviada!";
-            locModoPanico.textContent = "Enviamos sua localização para o número informado. Um alerta de emergência foi acionado.";
-            ajudaPanico.textContent = "📞 Ligue para ajuda imediata:";
-            ajudaModoPanico.innerHTML = "<ul><li>Bombeiros: 193<li><li>Defesa Civil: 199<li><ul>";
-            pPanico.textContent = "😌 Mantenha a calma.";
-            p2Panico.textContent = "Você não está sozinho. Respire fundo, busque um local seguro e siga as orientações da página inicial.";
-       
+        tituloPanico.textContent = "📍 Localização enviada!";
+        locModoPanico.textContent = "Enviamos sua localização para o número informado. Um alerta de emergência foi acionado.";
+        ajudaPanico.textContent = "📞 Ligue para ajuda imediata:";
+        ajudaModoPanico.innerHTML = "<ul><li>Bombeiros: 193<li><li>Defesa Civil: 199<li><ul>";
+        pPanico.textContent = "😌 Mantenha a calma.";
+        p2Panico.textContent = "Você não está sozinho. Respire fundo, busque um local seguro e siga as orientações da página inicial.";
+
 
         dialog.querySelector('.dialogPanico .botao').addEventListener('click', function () {
             dialog.close()
@@ -316,3 +316,130 @@ if (botaoModoPanico) {
         dialog.showModal();
     });
 }
+
+const botaoDicas = document.querySelectorAll('.lista-dicas li')
+botaoDicas.forEach(item => {
+    const dialog = document.querySelector('.dicas-dialog')
+    const tituloDialog = dialog.querySelector("h2");
+    const conteudoAntes = dialog.querySelector(".antes");
+    const conteudoDurante = dialog.querySelector(".durante");
+    const conteudoDepois = dialog.querySelector(".depois");
+
+    item.addEventListener('click', () => {
+        // Conteúdo das dicas
+        const dicas = [
+            {
+                nome: 'Onda de calor',
+                antes: [
+                    'Hidrate-se com frequência, mesmo sem sede.',
+                    'Prefira alimentos leves e frutas com alto teor de água.',
+                    'Use roupas leves, de algodão e cores claras.',
+                    'Planeje atividades físicas para antes das 10h ou após as 16h.'
+                ],
+                durante: [
+                    'Fique em ambientes ventilados e com sombra.',
+                    'Evite exposição direta ao sol.',
+                    'Molhe nuca, pulsos e rosto para aliviar o calor.',
+                    'Diminua o ritmo: evite esforços físicos.'
+                ],
+                depois: [
+                    'Reponha líquidos e eletrólitos.',
+                    'Dê atenção especial a crianças, idosos e pets.',
+                    'Observe sintomas como tontura, pele quente e seca ou náuseas.',
+                ],
+                prever: [
+                    'companhe previsões com temperatura acima de 35 °C por mais de 2 dias.',
+                    'Alta sensação térmica e umidade do ar abaixo de 20% indicam risco.',
+                    'Fique atento à previsão do tempo e mantenha-se hidratado o dia todo.'
+
+                ]
+            },
+            {
+                nome: 'Frio Intenso',
+                antes: [
+                    'Use roupas em camadas: térmica, lã, moletom, jaqueta.',
+                    'Proteja mãos, pés, cabeça e pescoço.',
+                    'Feche janelas e bloqueie entradas de vento em casa.'
+                ],
+                durante: [
+                    'Evite dormir em locais abertos.',
+                    'Consuma líquidos quentes e sopas.',
+                    'Fique atento a sinais de hipotermia (tremores intensos, confusão mental).'
+                ],
+                depois: [
+                    'Lave roupas e cobertores usados e mantenha secos.',
+                    'Se tossir muito, tiver febre ou dificuldade para respirar, procure ajuda.'
+                ],
+                prever: [
+                    'Frentes frias com mínimas abaixo de 10 °C.',
+                    'Alertas meteorológicos para “massa polar” ou “onda de frio”.',
+                    'Use o site para verificar se há risco nos próximos dias e se prepare com antecedência.'
+                ]
+            },
+            {
+                nome: 'Chuvas Intensas',
+                antes: [
+                    'Fique de olho no nível de rios e alagamentos.',
+                    'Evite deixar móveis ou eletrônicos no chão de casa.',
+                    'Guarde documentos em local alto e protegido.'
+                ],
+                durante: [
+                    'Não enfrente áreas alagadas a pé ou de carro.',
+                    'Evite contato com água da enchente (pode estar contaminada).',
+                    'Desligue a energia elétrica se a água começar a entrar.'
+                ],
+                depois: [
+                    'Use luvas e botas para limpeza.',
+                    'Ferva ou filtre a água antes de usar.',
+                    'Registre danos e acione a Defesa Civil se necessário.',
+                ],
+                prever: [
+                    'Volume acumulado maior que 50 mm em 24h é sinal de alerta.',
+                    'Monitoramento via app ou TV ajuda a antecipar.',
+                    'Se puder, evite sair de casa nos dias de chuva forte. Use o site para conferir alertas.'
+                ]
+            },
+            {
+                nome: 'Ventos Fortes',
+                antes: [
+                    'Retire vasos e objetos soltos de janelas e sacadas.',
+                    'Reforce telhados e estruturas leves.',
+                    'Estacione carros longe de árvores ou placas'
+                ],
+                durante: [
+                    'Não permaneça próximo a janelas, postes ou árvores.',
+                    'Se estiver fora, busque abrigo em prédios.',
+                    'Desligue aparelhos eletrônicos e evite usar celular conectado à tomada.'
+                ],
+                depois: [
+                    'Cuidado com fios caídos ou estruturas danificadas.',
+                    'Não tente consertar postes ou fiações sozinho.',
+                    'Fotografe os danos para acionar autoridades.',
+                ],
+                prever: [
+                    'Rajadas acima de 60 km/h.',
+                    'Alertas com termos como “ventos fortes”, “vendaval” ou “tempestade com ventos”.',
+                    'Use o site para se antecipar. Se houver alerta de ventania, evite se expor.'
+                ]
+            }
+        ]
+
+        document.querySelector('#abrigos').addEventListener('click', function () {
+            if (formLocal.querySelector('input').value == '') {
+                alert('preencha')
+            } else {
+                window.location.href = 'abrigos.html'
+            }
+        })
+        const botaoCompativel = dicas.filter(dica => dica.nome.toLowerCase == 'ondas de calor')
+
+        document.querySelector('dialog .fechar').addEventListener('click', function () {
+            document.querySelector('dialog').close()
+        })
+        dialog.showModal()
+    })
+
+    dialog.querySelector('.fechar').addEventListener('click', () => {
+        dialog.close()
+    })
+})
