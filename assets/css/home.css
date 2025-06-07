@@ -56,7 +56,8 @@
 }
 
 #search,
-#pesquisar-local,#modoPanico {
+#pesquisar-local,
+#modoPanico {
     display: flex;
     align-items: center;
     gap: 0.8rem;
@@ -66,14 +67,15 @@
 }
 
 #search input,
-#pesquisar-local input,#modo-panico  {
+#pesquisar-local input,
+#modo-panico {
     border: none;
     background-color: transparent;
     font-size: 16px;
     width: 100%;
 }
 
-#modoPanico{
+#modoPanico {
     background-color: #fff;
 }
 
@@ -228,6 +230,16 @@ dialog {
     box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
 }
 
+.dicas-dialog section {
+    margin-block: 2vh;
+
+    & li {
+        margin-left: 2rem;
+        font-size: 1.8rem;
+        list-style-type: disc;
+    }
+}
+
 .modo-panico {
     flex-flow: column;
     gap: 2vh;
@@ -240,16 +252,17 @@ dialog {
 }
 
 /*Estilização textos dialog*/
-.ajudaPanico,.pPanico {
+.ajudaPanico,
+.pPanico {
     font-weight: bold;
     margin-block: 0.5rem;
 }
 
-.dialogPanico .botao{
+.dialogPanico .botao {
     margin: 0 auto;
     margin-top: 1.8rem;
 }
- 
+
 /*--------------------- Media queries ---------------------*/
 @media (max-width: 768px) {
     .clima-section {

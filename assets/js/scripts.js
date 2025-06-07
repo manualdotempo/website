@@ -318,18 +318,19 @@ if (botaoModoPanico) {
 }
 
 const botaoDicas = document.querySelectorAll('.lista-dicas li')
-botaoDicas.forEach(item => {
-    const dialog = document.querySelector('.dicas-dialog')
-    const tituloDialog = dialog.querySelector("h2");
-    const conteudoAntes = dialog.querySelector(".antes");
-    const conteudoDurante = dialog.querySelector(".durante");
-    const conteudoDepois = dialog.querySelector(".depois");
+const dialog = document.querySelector('.dicas-dialog')
+const tituloDialog = dialog.querySelector('h2')
+const conteudoAntes = dialog.querySelector('.antes')
+const conteudoDurante = dialog.querySelector('.durante')
+const conteudoDepois = dialog.querySelector('.depois')
+const conteudoPrever = dialog.querySelector('.prever')
 
+botaoDicas.forEach(item => {
     item.addEventListener('click', () => {
         // Conteúdo das dicas
         const dicas = [
             {
-                nome: 'Onda de calor ☀️',
+                nome: 'Onda de Calor ☀️',
                 antes: [
                     'Hidrate-se com frequência, mesmo sem sede.',
                     'Prefira alimentos leves e frutas com alto teor de água.',
@@ -351,7 +352,6 @@ botaoDicas.forEach(item => {
                     'companhe previsões com temperatura acima de 35 °C por mais de 2 dias.',
                     'Alta sensação térmica e umidade do ar abaixo de 20% indicam risco.',
                     'Fique atento à previsão do tempo e mantenha-se hidratado o dia todo.'
-
                 ]
             },
             {
@@ -424,22 +424,32 @@ botaoDicas.forEach(item => {
             }
         ]
 
-        document.querySelector('#abrigos').addEventListener('click', function () {
-            if (formLocal.querySelector('input').value == '') {
-                alert('preencha')
-            } else {
-                window.location.href = 'abrigos.html'
-            }
-        })
-        const botaoCompativel = dicas.filter(dica => dica.nome.toLowerCase == 'ondas de calor')
+        const dicaNome = item.querySelector('p').textContent.trim()
+        const dicaCorrespondente = dicas.find(dica => dica.nome.slice(0, -2).includes(dicaNome))
 
-        document.querySelector('dialog .fechar').addEventListener('click', function () {
-            document.querySelector('dialog').close()
-        })
+        tituloDialog.textContent = dicaCorrespondente.nome
+
+        // Função para preencher listas
+        function preencherLista(conteudo, elementoLista) {
+            conteudo.forEach(texto => {
+                const li = document.createElement('li')
+                li.textContent = texto
+                elementoLista.appendChild(li)
+            })
+        }
+        preencherLista(dicaCorrespondente.antes, conteudoAntes)
+        preencherLista(dicaCorrespondente.durante, conteudoDurante)
+        preencherLista(dicaCorrespondente.depois, conteudoDepois)
+        preencherLista(dicaCorrespondente.prever, conteudoPrever)
+
         dialog.showModal()
     })
 
     dialog.querySelector('.fechar').addEventListener('click', () => {
         dialog.close()
+        conteudoAntes.innerHTML = ''
+        conteudoDurante.innerHTML = ''
+        conteudoDepois.innerHTML = ''
+        conteudoPrever.innerHTML = ''
     })
 })
