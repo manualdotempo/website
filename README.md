@@ -70,6 +70,26 @@ Um site leve, acessível e funcional que:
 
 ---
 
+## 📂 Estrutura de Diretórios
+```
+consulta-certa/
+│── index.html            # Arquivo HTML Principal
+│── assets/               # Arquivos estaticos do projeto
+│   ├── images/           # Arquivos de imagem
+│   ├── css/              # Arquivos .css
+│   ├── js/               # Arquivos .js
+│── pages/                # Demais páginas HTML
+└── README.md             # README do projeto
+```
+
+---
+
+## 🌐 Link para o repositório
+
+[Manual do Tempo: Repositório Remoto](https://github.com/manualdotempo/website)
+
+---
+
 ## 📜 Licença
 
 Projeto acadêmico desenvolvido para o Global Solution FIAP 2025.  
