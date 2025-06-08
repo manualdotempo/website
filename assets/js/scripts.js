@@ -172,42 +172,57 @@ document.addEventListener("DOMContentLoaded", () => {
     if (botaoAlertas) {
         botaoAlertas.addEventListener("click", () => {
             const localizacaoDigitada = localizacaoInput?.value.trim();
-            if (!localizacaoDigitada) {
-                alert("Por favor, informe uma localização antes de verificar alertas.");
-                return;
-            }
-
             const dialog = document.querySelector(".alerta-dialog");
             const tituloDialog = dialog.querySelector("h2");
             const nomeEvento = dialog.querySelector(".nome");
             const instrucaoEvento = dialog.querySelector(".instrucao");
 
-            const eventosCompativeis = eventos.filter(evento => evento.localizacao.toLowerCase() === localizacaoDigitada.toLowerCase());
-
-            if (eventosCompativeis.length > 0) {
-                tituloDialog.textContent = `🚨 Eventos climáticos em ${toTitleCase(localizacaoDigitada)}`;
-                nomeEvento.textContent = `ALERTA: Sua localização está vulnerável a ${eventosCompativeis.map(e => e.tipo).join(", ")}`;
-                nomeEvento.style.display = 'block'
-                instrucaoEvento.textContent = "Para se preparar, volte ao menu e acesse as dicas de preparo para eventos climáticos e localize abrigos para se proteger.";
-            } else {
-                tituloDialog.textContent = `❌ Nenhum evento climático em ${toTitleCase(localizacaoDigitada)}`;
+            if (!localizacaoDigitada) {
+                tituloDialog.textContent = "📍 Localização não informada";
                 nomeEvento.style.display = "none";
-                instrucaoEvento.textContent = "Parece que não há alertas no momento, mas fique sempre preparado para possíveis eventos climáticos.";
+                instrucaoEvento.textContent = "Por favor, informe uma localização antes de verificar alertas.";
+            } else {
+                const eventosCompativeis = eventos.filter(evento => evento.localizacao.toLowerCase() === localizacaoDigitada.toLowerCase());
+
+                if (eventosCompativeis.length > 0) {
+                    tituloDialog.textContent = `🚨 Eventos climáticos em ${toTitleCase(localizacaoDigitada)}`;
+                    nomeEvento.textContent = `ALERTA: Sua localização está vulnerável a ${eventosCompativeis.map(e => e.tipo).join(", ")}`;
+                    nomeEvento.style.display = 'block';
+                    instrucaoEvento.textContent = "Para se preparar, volte ao menu e acesse as dicas de preparo para eventos climáticos e localize abrigos para se proteger.";
+                } else {
+                    tituloDialog.textContent = `❌ Nenhum evento climático em ${toTitleCase(localizacaoDigitada)}`;
+                    nomeEvento.style.display = "none";
+                    instrucaoEvento.textContent = "Parece que não há alertas no momento, mas fique sempre preparado para possíveis eventos climáticos.";
+                }
             }
 
             dialog.querySelector('.fechar').addEventListener('click', function () {
-                dialog.close()
-            })
+                dialog.close();
+            });
 
             dialog.showModal();
         });
     }
 
+
     if (botaoAbrigos) {
         botaoAbrigos.addEventListener("click", () => {
             const localizacaoDigitada = localizacaoInput?.value.trim();
+            const dialog = document.querySelector(".alerta-dialog");
+            const tituloDialog = dialog.querySelector("h2");
+            const nomeEvento = dialog.querySelector(".nome");
+            const instrucaoEvento = dialog.querySelector(".instrucao");
+
             if (!localizacaoDigitada) {
-                alert("Por favor, informe uma localização antes de conferir abrigos.");
+                tituloDialog.textContent = "📍 Localização não informada";
+                nomeEvento.style.display = "none";
+                instrucaoEvento.textContent = "Por favor, informe uma localização antes de conferir abrigos.";
+
+                dialog.querySelector('.fechar').addEventListener('click', function () {
+                    dialog.close();
+                });
+
+                dialog.showModal();
                 return;
             }
 
@@ -215,6 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "abrigos.html";
         });
     }
+
 
     if (window.location.pathname.includes("abrigos.html")) {
         const localizacaoDigitada = localStorage.getItem("localizacaoDigitada");
@@ -287,11 +303,6 @@ const botaoModoPanico = document.getElementById("botaoPanico");
 if (botaoModoPanico) {
     botaoModoPanico.addEventListener("click", () => {
         const numeroDigitada = document.querySelector("#modo-panico").value.trim();
-        if (!numeroDigitada) {
-            alert("Por favor, digite um numero antes de começar.");
-            return;
-        }
-
         const dialog = document.querySelector(".dialogPanico");
         const tituloPanico = dialog.querySelector("h2");
         const locModoPanico = dialog.querySelector(".locModoPanico");
@@ -300,22 +311,37 @@ if (botaoModoPanico) {
         const pPanico = dialog.querySelector(".pPanico");
         const p2Panico = dialog.querySelector(".p2Panico");
 
+        if (!numeroDigitada) {
+            tituloPanico.textContent = "⚠️ Número não informado";
+            locModoPanico.textContent = "Por favor, digite um número antes de iniciar o modo pânico.";
+            ajudaPanico.textContent = "";
+            ajudaModoPanico.innerHTML = "";
+            pPanico.textContent = "";
+            p2Panico.textContent = "";
+
+            dialog.querySelector('.dialogPanico .botao').addEventListener('click', function () {
+                dialog.close();
+            });
+
+            dialog.showModal();
+            return;
+        }
 
         tituloPanico.textContent = "📍 Localização enviada!";
         locModoPanico.textContent = "Enviamos sua localização para o número informado. Um alerta de emergência foi acionado.";
         ajudaPanico.textContent = "📞 Ligue para ajuda imediata:";
-        ajudaModoPanico.innerHTML = "<ul><li>Bombeiros: 193<li><li>Defesa Civil: 199<li><ul>";
+        ajudaModoPanico.innerHTML = "<ul><li>Bombeiros: 193</li><li>Defesa Civil: 199</li></ul>";
         pPanico.textContent = "😌 Mantenha a calma.";
         p2Panico.textContent = "Você não está sozinho. Respire fundo, busque um local seguro e siga as orientações da página inicial.";
 
-
         dialog.querySelector('.dialogPanico .botao').addEventListener('click', function () {
-            dialog.close()
-        })
+            dialog.close();
+        });
 
         dialog.showModal();
     });
 }
+
 
 const botaoDicas = document.querySelectorAll('.lista-dicas li')
 const dialog = document.querySelector('.dicas-dialog')
